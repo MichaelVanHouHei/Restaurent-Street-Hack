@@ -1,0 +1,73 @@
+﻿<mah:MetroWindow x:Class="RCHACKER.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RCHACKER"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="RCHacker By MV" Height="450" Width="800" Loaded="MetroWindow_Loaded" >
+    <Grid>
+        <Button IsEnabled="{Binding notLogging}" Content="LOGIN" HorizontalAlignment="Left" Height="32" Margin="423,2,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click"/>
+        <TextBox HorizontalAlignment="Left" Margin="33,10,0,0" TextWrapping="Wrap" Text="{Binding uid}" VerticalAlignment="Top" Width="141" Height="25"/>
+        <TextBox HorizontalAlignment="Left" Margin="265,4,0,0" TextWrapping="Wrap" Text="{Binding authCode}" VerticalAlignment="Top" Width="153" Height="32"/>
+        <Label Content="uid" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top"/>
+        <Label Content="authCode" HorizontalAlignment="Left" Margin="179,3,0,0" VerticalAlignment="Top"/>
+        <TabControl Margin="0,41,0,0">
+            <TabItem Header="profiler">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{Binding username}" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="credit" HorizontalAlignment="Left" Margin="11,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.05,2.518"/>
+                    <Label Content="{Binding creditPoint}" HorizontalAlignment="Left" Margin="60,40,0,0" VerticalAlignment="Top"/>
+                    <Label Content="gourmentPoint" HorizontalAlignment="Left" Margin="11,70,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{Binding gourmentPoint}" HorizontalAlignment="Left" Margin="112,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.159,0.566"/>
+                    <Button IsEnabled="{Binding isGetProfile}" Content="one click level 75" HorizontalAlignment="Left" Height="42" Margin="12,238,0,0" VerticalAlignment="Top" Width="365" Click="Button_Click_1"/>
+                    <Label Content="saved version" HorizontalAlignment="Left" Margin="14,100,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{Binding savedVersion}" HorizontalAlignment="Left" Margin="117,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.857,-0.847"/>
+                    <Label Content="Time On Client" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.34,0.499"/>
+                    <Label Content="{Binding TimeOnClient}" HorizontalAlignment="Left" Margin="117,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.074,-0.002"/>
+                    <Label Content="error count(normally error time on client):" HorizontalAlignment="Left" Margin="12,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.074,1.736"/>
+                    <Label Content="{Binding ErrorCount}" HorizontalAlignment="Left" Margin="261,150,0,0" VerticalAlignment="Top"/>
+                    <Label Content="*本修改全自動滿popularity以及全員工自動滿體力" HorizontalAlignment="Left" Margin="14,280,0,0" VerticalAlignment="Top" Foreground="Red"/>
+                    <Label Content="gain credit" HorizontalAlignment="Left" Margin="14,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.08,-0.013"/>
+                    <Label Content="gain gourment point" HorizontalAlignment="Left" Margin="14,205,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.08,-0.013"/>
+                    <Label Content="{Binding changedCredit}" HorizontalAlignment="Left" Margin="94,180,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{Binding changedGourmentPoint}" HorizontalAlignment="Left" Margin="146,208,0,0" VerticalAlignment="Top"/>
+                    <Label Content="level" HorizontalAlignment="Left" Margin="154,15,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{Binding curLevel}" HorizontalAlignment="Left" Margin="190,15,0,0" VerticalAlignment="Top"/>
+                    <Button IsEnabled="{Binding isGetProfile}" Content="buy today ingradient for free (40 each press this button)" HorizontalAlignment="Left" Margin="377,250,0,0" VerticalAlignment="Top" Click="Button_Click_5" Height="30" Width="371"/>
+                    <Button Content="slow speed normal earning" HorizontalAlignment="Left" Height="47" Margin="439,138,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click_6"/>
+                    <Button Content="batch reg" HorizontalAlignment="Left" Margin="462,75,0,0" VerticalAlignment="Top" Click="Button_Click_7"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="add item to inventory">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="239*"/>
+                        <ColumnDefinition Width="158*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button IsEnabled="{Binding isGetProfile}" Content="send selected item to inventory" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.472,0.24" Click="Button_Click_2"/>
+                    <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding itemsList,Mode=TwoWay}" Margin="0,27,0,44" Grid.ColumnSpan="2"/>
+                    <CheckBox Content="select all" IsChecked="{Binding isSelectAllItem,Mode=TwoWay}" HorizontalAlignment="Left" Margin="226,0,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+                    <Button Content="BuyAll" HorizontalAlignment="Left" Height="18" Margin="295,0,0,328" VerticalAlignment="Bottom" Width="88" Click="Button_Click_3"/>
+                    <Label Content="注意:暫時不可買課金物品,以及level不足買不了,本功能會不扣你錢情怳下買東西且加到貨倉" HorizontalAlignment="Left" Margin="7,311,0,0" VerticalAlignment="Top" Foreground="Red" Height="29" Width="518" Grid.ColumnSpan="2"/>
+                    <mah:NumericUpDown Value="{Binding Qty}" HorizontalAlignment="Left" Margin="459,-4,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.86,0.132" Grid.ColumnSpan="2"/>
+                    <Label Content="quantity" HorizontalAlignment="Left" Margin="397,-2,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Room Item Cloner">
+                <Grid>
+                    <Button IsEnabled="{Binding isGetProfile}" Content="clone item" HorizontalAlignment="Left" Margin="10,0,0,323" VerticalAlignment="Bottom" RenderTransformOrigin="-0.472,0.24" Click="Button_Click_4"/>
+                    <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding RoomItems,Mode=TwoWay}" Margin="0,27,0,44"/>
+                    <mah:NumericUpDown Value="{Binding Qty}" HorizontalAlignment="Left" Margin="459,-4,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.86,0.132"/>
+                </Grid>
+            </TabItem>
+
+
+
+
+        </TabControl>
+
+    </Grid>
+</mah:MetroWindow>
