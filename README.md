@@ -1,6 +1,6 @@
 # RCHacker
 ## this project is deprecated
-
+![alt text](https://github.com/MichaelVanHouHei/Restaurent-Street-Hack/blob/master/fuckingshit.jpg?raw=true)
 
 The RC Hacker cheat for Restaurant Street is no longer being updated or actively maintained, as the associated account was blocked as of January 2022. As a result, no new features or functionality have been tested or released since that time.
 
